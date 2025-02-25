@@ -305,6 +305,13 @@ int DrmConnector::UpdateModes() {
   return 0;
 }
 
+bool DrmConnector::CheckBigjoinerMode(const DrmMode &mode) {
+	if (mode.h_display() > 5120) {
+		return true;
+	}
+	return false;
+}
+
 void DrmConnector::SetActiveMode(DrmMode &mode) {
   active_mode_ = mode;
 }
